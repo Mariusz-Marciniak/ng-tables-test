@@ -32,8 +32,8 @@ export class PrimeNgTestComponent implements OnInit {
 
   private initData() {
     this.loading = true;
-    // this.debtorsService.getDebtorsChunk(0, 40).then(d => this.virtualDebtors = d);
-    this.debtorsService.getDebtors().then(d => this.virtualDebtors = d);
+    this.debtorsService.getDebtorsChunk(0, 40).then(d => this.virtualDebtors = d);
+    // this.debtorsService.getDebtors().then(d => this.virtualDebtors = d);
     this.loading = false;
   }
 

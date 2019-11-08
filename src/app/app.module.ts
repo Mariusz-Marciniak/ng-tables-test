@@ -9,17 +9,21 @@ import { PrimeNgTestComponent } from './prime-ng-test/prime-ng-test.component';
 import { MenuComponent } from './menu/menu.component';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {HttpClientModule} from "@angular/common/http";
+import { AgGridModule } from 'ag-grid-angular';
+import { AgGridTestComponent } from './ag-grid-test/ag-grid-test.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NgxDatatableTestComponent,
     PrimeNgTestComponent,
-    MenuComponent
+    MenuComponent,
+    AgGridTestComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    AgGridModule.withComponents([]),
     HttpClientModule,
     AppRoutingModule,
     TableModule
