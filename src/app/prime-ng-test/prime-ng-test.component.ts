@@ -8,7 +8,8 @@ import {LazyLoadEvent} from "primeng/api";
   templateUrl: './prime-ng-test.component.html',
   styleUrls: [
     './prime-ng-test.component.scss'
-  ]
+  ],
+  encapsulation : false
 })
 export class PrimeNgTestComponent implements OnInit {
 

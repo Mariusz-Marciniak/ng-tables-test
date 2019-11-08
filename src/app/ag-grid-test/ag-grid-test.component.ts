@@ -12,8 +12,8 @@ export class AgGridTestComponent implements OnInit {
   cols = [
     { field: 'caseNo', headerName: 'Case No', width: 100, resizable: true},
     { field: 'debtor', headerName: 'Debtor', width: 200, sortable: true, resizable: true },
-    { field: 'claimCount', headerName: 'Claim Count', width: 90, sortable: true, resizable: true },
-    { field: 'claimAmount', headerName: 'Claim Amount', width: 250, sortable: true, resizable: true }
+    { field: 'claimCount', headerName: 'Claim Count', width: 90, sortable: true, resizable: true, cellClass : 'ag-numeric-cell' },
+    { field: 'claimAmount', headerName: 'Claim Amount', width: 250, sortable: true, resizable: true, cellClass : 'ag-numeric-cell'}
   ];
   virtualDebtors: Debtor[];
 

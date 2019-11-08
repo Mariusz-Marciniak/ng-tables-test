@@ -1,7 +1,8 @@
 <p-table [columns]="cols" [value]="virtualDebtors" [rows]="perPage" [scrollable]="true" scrollHeight="300px"
          [resizableColumns]="true" [virtualScroll]="true"
          (onLazyLoad)="loadDataOnScroll($event)" [lazy]="true"
-         [totalRecords]="totalRecords" [virtualRowHeight]="34">
+         [totalRecords]="totalRecords" [virtualRowHeight]="34"
+         (sortFunction)="loadDataOnScroll($event)" [customSort]="true">
   <ng-template pTemplate="colgroup" let-columns>
     <colgroup>
       <col *ngFor="let col of columns" [style.width]="col.width">
@@ -9,14 +10,15 @@
   </ng-template>
   <ng-template pTemplate="header" let-columns>
     <tr>
-      <th *ngFor="let col of columns" pResizableColumn>
+      <th *ngFor="let col of columns" pResizableColumn [pSortableColumn]="col.field">
         {{col.header}}
+        <p-sortIcon [field]="col.field" ariaLabel="Activate to sort" ariaLabelDesc="Activate to sort in descending order" ariaLabelAsc="Activate to sort in ascending order"></p-sortIcon>
       </th>
     </tr>
   </ng-template>
   <ng-template pTemplate="body" let-debtor let-columns="columns">
     <tr>
-      <td *ngFor="let col of columns" class="ui-resizable-column">
+      <td *ngFor="let col of columns; let i = index" [style.width]="col.width" [ngClass]="{'ui-resizable-column': true,'numeric-value' : i > 1 }">
         {{debtor[col.field]}}
       </td>
     </tr>
