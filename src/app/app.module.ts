@@ -11,6 +11,10 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {HttpClientModule} from "@angular/common/http";
 import { AgGridModule } from 'ag-grid-angular';
 import { AgGridTestComponent } from './ag-grid-test/ag-grid-test.component';
+import { DevextremeTestComponent } from './devextreme-test/devextreme-test.component';
+import { DxDataGridModule,
+  DxBulletModule,
+  DxTemplateModule } from 'devextreme-angular';
 
 @NgModule({
   declarations: [
@@ -18,7 +22,8 @@ import { AgGridTestComponent } from './ag-grid-test/ag-grid-test.component';
     NgxDatatableTestComponent,
     PrimeNgTestComponent,
     MenuComponent,
-    AgGridTestComponent
+    AgGridTestComponent,
+    DevextremeTestComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +31,10 @@ import { AgGridTestComponent } from './ag-grid-test/ag-grid-test.component';
     AgGridModule.withComponents([]),
     HttpClientModule,
     AppRoutingModule,
-    TableModule
+    TableModule,
+    DxDataGridModule,
+    DxTemplateModule,
+    DxBulletModule
   ],
   providers: [],
   bootstrap: [AppComponent]

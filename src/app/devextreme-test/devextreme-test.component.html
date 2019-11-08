@@ -1,0 +1,22 @@
+<dx-data-grid id="gridContainer"
+              [dataSource]="records"
+              [remoteOperations]="false"
+              [allowColumnReordering]="true"
+              [rowAlternationEnabled]="true"
+              [allowColumnResizing]="true"
+              [showBorders]="true" height="500">
+
+  <dxi-column dataField="caseNo" minWidth="200" cellTemplate="leadDebtor"></dxi-column>
+  <dxi-column dataField="debtor" caption="Sale Amount" ></dxi-column>
+  <dxi-column dataField="claimAmount" dataType="number"></dxi-column>
+  <dxi-column dataField="claimCount" dataType="number"></dxi-column>
+
+  <dxo-load-panel [enabled]="true"></dxo-load-panel>
+  <dxo-scrolling mode="virtual"></dxo-scrolling>
+  <dxo-sorting mode="none"></dxo-sorting>
+
+  <div *dxTemplate="let d of 'leadDebtor'" >
+    {{d.data.caseNo}}
+    <img src="assets/star.png" style="width: 20px; vertical-align: sub;" *ngIf="d.data.lead_debtor" />
+  </div>
+</dx-data-grid>
