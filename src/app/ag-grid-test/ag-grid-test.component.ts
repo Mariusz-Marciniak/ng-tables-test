@@ -10,10 +10,10 @@ import {Debtor} from "../debtor";
 export class AgGridTestComponent implements OnInit {
 
   cols = [
-    { field: 'caseNo', headerName: 'Case No', width: 100},
-    { field: 'debtor', headerName: 'Debtor', width: 200, sortable: true },
-    { field: 'claimCount', headerName: 'Claim Count', width: 90, sortable: true },
-    { field: 'claimAmount', headerName: 'Claim Amount', width: 250, sortable: true }
+    { field: 'caseNo', headerName: 'Case No', width: 100, resizable: true},
+    { field: 'debtor', headerName: 'Debtor', width: 200, sortable: true, resizable: true },
+    { field: 'claimCount', headerName: 'Claim Count', width: 90, sortable: true, resizable: true },
+    { field: 'claimAmount', headerName: 'Claim Amount', width: 250, sortable: true, resizable: true }
   ];
   virtualDebtors: Debtor[];
 
