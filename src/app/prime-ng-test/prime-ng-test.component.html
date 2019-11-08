@@ -1,4 +1,7 @@
-<p-table [columns]="cols" [value]="debtors" [scrollable]="true" scrollHeight="300px" [resizableColumns]="true">
+<p-table [columns]="cols" [value]="virtualDebtors" [rows]="perPage" [scrollable]="true" scrollHeight="300px"
+         [resizableColumns]="true" [virtualScroll]="true"
+         (onLazyLoad)="loadDataOnScroll($event)" [lazy]="true"
+         [totalRecords]="totalRecords" [virtualRowHeight]="34">
   <ng-template pTemplate="colgroup" let-columns>
     <colgroup>
       <col *ngFor="let col of columns" [style.width]="col.width">
@@ -15,6 +18,13 @@
     <tr>
       <td *ngFor="let col of columns" class="ui-resizable-column">
         {{debtor[col.field]}}
+      </td>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="loadingbody" let-columns="columns">
+    <tr style="height:34px">
+      <td *ngFor="let col of columns" [style.width]="col.width">
+        <div class="loading-text">loading...</div>
       </td>
     </tr>
   </ng-template>

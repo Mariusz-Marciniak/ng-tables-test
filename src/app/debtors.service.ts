@@ -13,4 +13,9 @@ export class DebtorsService {
     return this.http.get<Debtor[]>('/assets/debtor-data.json').toPromise()
   }
 
+  getDebtorsChunk(offset: number, amount: number) {
+    console.log(`fetching ${amount} from ${offset}`)
+    return this.http.get<Debtor[]>('/assets/debtor-data.json').toPromise().then(v => v.slice(offset, offset+amount))
+  }
+
 }

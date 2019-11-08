@@ -12,11 +12,11 @@ import {LazyLoadEvent} from "primeng/api";
 })
 export class PrimeNgTestComponent implements OnInit {
 
-  debtors: Debtor[]
   cols: any[];
   loading: boolean;
-  inmemoryData: Debtor[];
-  virtualDebtor: Debtor[];
+  virtualDebtors: Debtor[];
+  totalRecords = 1500;
+  perPage = 20;
 
   constructor(private debtorsService: DebtorsService) { }
 
@@ -27,32 +27,32 @@ export class PrimeNgTestComponent implements OnInit {
       { field: 'claimCount', header: 'Claim Count', width: '15%' },
       { field: 'claimAmount', header: 'Claim Amount', width: '25%' }
     ];
-    this.debtorsService.getDebtors().then(debtors => this.debtors = debtors)
+    this.initData();
+  }
+
+  private initData() {
+    this.loading = true;
+    // this.debtorsService.getDebtorsChunk(0, 40).then(d => this.virtualDebtors = d);
+    this.debtorsService.getDebtors().then(d => this.virtualDebtors = d);
+    this.loading = false;
   }
 
   loadDataOnScroll(event: LazyLoadEvent) {
     this.loading = true;
 
-    //for demo purposes keep loading the same dataset
-    //in a real production application, this data should come from server by building the query with LazyLoadEvent options
     setTimeout(() => {
-      //last chunk
-      if (event.first === 249980)
-        this.virtualDebtor = this.loadChunk(event.first, 20);
+      if (event.first === this.totalRecords - this.perPage)
+        this.loadChunk(event.first, this.perPage);
       else
-        this.virtualDebtor = this.loadChunk(event.first, event.rows);
+        this.loadChunk(event.first, event.rows);
 
       this.loading = false;
     }, 250);
   }
 
-  loadChunk(index, length): Debtor[] {
-    let chunk: Debtor[] = [];
-    for (let i = 0; i < length; i++) {
-      chunk[i] = {...this.inmemoryData[i], ...{vin: (index + i)}};
-    }
-
-    return chunk;
+  loadChunk(index, length) {
+    this.debtorsService.getDebtorsChunk(index, length).
+    then(debtors => this.virtualDebtors = debtors);
   }
 
 }
