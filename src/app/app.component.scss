@@ -1,0 +1,12 @@
+.parent-panel {
+  display: flex;
+  .side-panel {
+    width: 200px;
+    background: lightblue;
+  }
+  .main-panel {
+    flex: 1;
+    background: lightgreen;
+  }
+
+}
