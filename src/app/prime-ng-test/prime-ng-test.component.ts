@@ -1,15 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import {Debtor} from "../debtor";
-import {DebtorsService} from "../debtors.service";
-import {LazyLoadEvent} from "primeng/api";
+import {Debtor} from '../debtor';
+import {DebtorsService} from '../debtors.service';
+import {LazyLoadEvent} from 'primeng/api';
 
 @Component({
   selector: 'app-prime-ng-test',
   templateUrl: './prime-ng-test.component.html',
   styleUrls: [
     './prime-ng-test.component.scss'
-  ],
-  encapsulation : false
+  ]
 })
 export class PrimeNgTestComponent implements OnInit {
 
@@ -42,10 +41,12 @@ export class PrimeNgTestComponent implements OnInit {
     this.loading = true;
 
     setTimeout(() => {
-      if (event.first === this.totalRecords - this.perPage)
+      if (event.first === this.totalRecords - this.perPage) {
         this.loadChunk(event.first, this.perPage);
-      else
+      }
+      else {
         this.loadChunk(event.first, event.rows);
+      }
 
       this.loading = false;
     }, 250);

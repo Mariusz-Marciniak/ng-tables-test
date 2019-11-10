@@ -4,11 +4,10 @@ import {TableModule} from 'primeng/table';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NgxDatatableTestComponent } from './ngx-datatable-test/ngx-datatable-test.component';
 import { PrimeNgTestComponent } from './prime-ng-test/prime-ng-test.component';
 import { MenuComponent } from './menu/menu.component';
-import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import {HttpClientModule} from "@angular/common/http";
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {HttpClientModule} from '@angular/common/http';
 import { AgGridModule } from 'ag-grid-angular';
 import { AgGridTestComponent } from './ag-grid-test/ag-grid-test.component';
 import { DevextremeTestComponent } from './devextreme-test/devextreme-test.component';
@@ -19,7 +18,6 @@ import { DxDataGridModule,
 @NgModule({
   declarations: [
     AppComponent,
-    NgxDatatableTestComponent,
     PrimeNgTestComponent,
     MenuComponent,
     AgGridTestComponent,

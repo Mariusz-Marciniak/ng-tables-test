@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {DebtorsService} from "../debtors.service";
-import {Debtor} from "../debtor";
+import {DebtorsService} from '../debtors.service';
+import {Debtor} from '../debtor';
 
 @Component({
   selector: 'app-ag-grid-test',
