@@ -23,11 +23,12 @@
     "ag-grid-angular": "^21.2.2",
     "ag-grid-community": "^21.2.2",
     "devextreme": "19.2.3",
-    "devextreme-cli": "latest",
     "devextreme-angular": "latest",
+    "devextreme-cli": "latest",
     "primeicons": "^2.0.0",
     "primeng": "^8.1.1",
     "rxjs": "~6.4.0",
+    "stream": "0.0.2",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"
   },
